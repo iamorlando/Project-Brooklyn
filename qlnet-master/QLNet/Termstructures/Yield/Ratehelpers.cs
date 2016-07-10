@@ -35,7 +35,6 @@ namespace QLNet
                                   Futures.Type type = Futures.Type.IMM)
            : base(price)
         {
-            
             switch (type)
             {
                 case QLNet.Futures.Type.IMM:
@@ -55,10 +54,11 @@ namespace QLNet
             yearFraction_ = dayCounter.yearFraction(earliestDate_, maturityDate_);
             pillarDate_ = latestDate_ = latestRelevantDate_ = maturityDate_;
 
+
+
             if (convAdj == null)
                 convAdj_ = new Handle<Quote>(new SimpleQuote(0.0));
-            else
-                convAdj_ = new Handle<Quote>(convAdj.link);
+            else convAdj_ = new Handle<Quote>(convAdj.link);
             convAdj_.registerWith(update);
         }
 
