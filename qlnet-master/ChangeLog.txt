@@ -1,0 +1,868 @@
+commit 0562beea7e1f64a834d2321ed3cecbb9bfd9a791
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Thu May 19 18:13:58 2016 +0200
+
+    Add missing engine : AnalyticH1HWEngine
+
+ QLNet/Pricingengines/vanilla/AnalyticH1HWEngine.cs | 178 +++++++++++++++++++++
+ 1 file changed, 178 insertions(+)
+
+commit e92c50cdd785fb14b97836c306648a9e45983557
+Merge: 1629ad2 eba0e3b
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Thu May 19 18:07:42 2016 +0200
+
+    Finish Feature HestonHullWhiteProcess
+
+commit eba0e3b8b261a9988354d13fb67ac34136c0e7f4
+Merge: 2e72362 1629ad2
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Thu May 19 18:02:59 2016 +0200
+
+    Merged 'develop'.
+
+commit 1629ad275d41028c53d05293c9a7e57a83ee6a31
+Merge: d8ed7ac 9e8b8bf
+Author: Andrea Maggiulli <amaggiulli@users.noreply.github.com>
+Date:   Thu May 19 18:00:16 2016 +0200
+
+    Merge pull request #82 from igitur/disposable-savedsettings
+    
+    Disposable SavedSettings
+
+commit 2e72362c49d6c672093a264f628680f0cf252c64
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Thu May 19 17:56:56 2016 +0200
+
+    Added HybridHestonHullWhiteProcess with tests
+
+ QLNet/Math/randomnumbers/SobolBrownianBridgeRsg.cs |  68 +++
+ QLNet/Models/MarketModels/BrownianGenerator.cs     |  34 ++
+ .../BrownianGenerators/SobolBrownianGenerator.cs   | 228 +++++++
+ .../vanilla/MCHestonHullWhiteEngine.cs             | 228 +++++++
+ QLNet/QLNet.csproj                                 |   8 +
+ QLNet/processes/ForwardMeasureProcess.cs           | 109 ++++
+ QLNet/processes/HullWhiteProcess.cs                | 149 +++++
+ QLNet/processes/HybridHestonHullWhiteProcess.cs    | 224 +++++++
+ Test/T_HybridHestonHullWhiteProcess.cs             | 653 +++++++++++++++++++++
+ 9 files changed, 1701 insertions(+)
+
+commit 919bf20ddc5aaa982d3044f24b30aa08bfbe0c58
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Thu May 19 17:56:07 2016 +0200
+
+    Small fixes & refactoring
+
+ QLNet/Methods/montecarlo/montecarlomodel.cs        | 194 +++++++-------
+ QLNet/Models/Shortrate/Onefactormodels/vasicek.cs  | 254 ++++++++++---------
+ QLNet/Pricingengines/mcsimulation.cs               | 267 ++++++++++----------
+ .../vanilla/AnalyticHestonHullWhiteEngine.cs       |   8 +-
+ QLNet/Pricingengines/vanilla/mcvanillaengine.cs    | 281 +++++++++++----------
+ 5 files changed, 511 insertions(+), 493 deletions(-)
+
+commit 9e8b8bfef43358883c00b2ed58957913a81af9cb
+Author: Francois Botha <igitur@gmail.com>
+Date:   Thu May 19 12:04:47 2016 +0200
+
+    Make SavedSettings disposable and update tests accordingly
+
+ QLNet/Settings.cs           |   47 +-
+ Test/T_AsianOptions.cs      |  627 +++++------
+ Test/T_Bonds.cs             | 2433 ++++++++++++++++++++++---------------------
+ Test/T_CreditDefaultSwap.cs |  795 +++++++-------
+ Test/T_DigitalOption.cs     | 1135 ++++++++++----------
+ Test/T_DividendOption.cs    |  839 +++++++--------
+ Test/T_HestonModel.cs       | 1428 ++++++++++++-------------
+ Test/T_Inflation.cs         | 1120 ++++++++++----------
+ 8 files changed, 4235 insertions(+), 4189 deletions(-)
+
+commit 2abde77e2cb8f82d52c914da541f3f28f3c2ec83
+Author: Francois Botha <igitur@gmail.com>
+Date:   Wed May 18 12:56:24 2016 +0200
+
+    reformat and reindent (only whitespace changes and usings reorder)
+
+ Test/T_CashFlows.cs         |  525 +++++++-------
+ Test/T_CreditDefaultSwap.cs |  973 +++++++++++++-------------
+ Test/T_DividendOption.cs    | 1584 +++++++++++++++++++++----------------------
+ Test/T_Inflation.cs         | 1354 ++++++++++++++++++------------------
+ 4 files changed, 2206 insertions(+), 2230 deletions(-)
+
+commit 60ec7711a9ef87708665db81aa8071070abd0358
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Fri May 13 15:13:56 2016 +0200
+
+    OrnsteinUhlenbeckProcess class refactoring
+
+ QLNet/processes/Ornsteinuhlenbeckprocess.cs | 166 ++++++++++++++--------------
+ 1 file changed, 80 insertions(+), 86 deletions(-)
+
+commit 349583aca4d4c1ab4fc581a2ee57e5629bb8459b
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Fri May 13 15:13:02 2016 +0200
+
+    TimeGrid fixes & new ctor
+
+ .../Pricingengines/Bond/TreeCallableBondEngine.cs  |  4 +-
+ QLNet/Pricingengines/Swap/treeswapengine.cs        |  4 +-
+ .../Pricingengines/swaption/treeswaptionengine.cs  |  4 +-
+ QLNet/timegrid.cs                                  | 93 ++++++++++++++--------
+ Test/T_LiborMarketModel.cs                         |  2 +-
+ Test/T_LiborMarketModelProcess.cs                  |  2 +-
+ 6 files changed, 68 insertions(+), 41 deletions(-)
+
+commit 6e1274fffeb1682cdea717ba7f6eaff1a27f9c99
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Fri May 13 15:07:46 2016 +0200
+
+    SobolRsg fix bits_ size and reformat code.
+
+ QLNet/Math/randomnumbers/sobolrsg.cs | 951 ++++++++++++++++++-----------------
+ 1 file changed, 497 insertions(+), 454 deletions(-)
+
+commit f4322b8c4d6f0b02baa04c4d6db8548968b6e551
+Merge: 7330b60 d8ed7ac
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Wed May 11 15:23:17 2016 +0200
+
+    Merged 'develop'.
+
+commit d8ed7acb3fc183d8eedc5bf6d653235b72a4ed4b
+Merge: 2956f64 797ef6e
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Wed May 11 14:56:14 2016 +0200
+
+    Merge branch 'igitur-use-weak-event-references' into develop
+
+commit 797ef6ec252aac442ce061a12e2fe8407787278e
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Wed May 11 14:54:47 2016 +0200
+
+    Compatibility fix , substitute a c#6.0 feature.
+
+ QLNet/Patterns/WeakEventSource.cs | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 7330b609d2015d5b740bbfba702911af9086f0e8
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Wed May 11 14:13:07 2016 +0200
+
+    HybridHestonHullWhiteProcess Step1
+
+ .../vanilla/AnalyticBSMHullWhiteEngine.cs          | 132 +++++++++++++
+ .../vanilla/AnalyticHestonHullWhiteEngine.cs       | 115 ++++++++++++
+ QLNet/QLNet.csproj                                 |   2 +
+ Test/T_HybridHestonHullWhiteProcess.cs             | 208 +++++++++++++++++++++
+ Test/Test.csproj                                   |   1 +
+ 5 files changed, 458 insertions(+)
+
+commit 2395b437853ad6f01ae1d855088a6f666fe9c96e
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Wed May 11 12:27:47 2016 +0200
+
+    VanillaOption refactoring.
+
+ QLNet/Instruments/VanillaOption.cs | 120 ++++++++++++++++++++-----------------
+ 1 file changed, 64 insertions(+), 56 deletions(-)
+
+commit 63370b447ff097ce2ba610c9d24811cb7fcd5acd
+Merge: c2f6b6b 2956f64
+Author: Francois Botha <igitur@gmail.com>
+Date:   Wed May 11 11:43:04 2016 +0200
+
+    Merge branch 'develop' of https://github.com/amaggiulli/qlnet into use-weak-event-references
+    
+    Conflicts:
+    	QLNet/Models/model.cs
+    	QLNet/Pricingengines/mclongstaffschwartzengine.cs
+    	QLNet/Pricingengines/vanilla/mcvanillaengine.cs
+
+commit 2956f641465c28b67082a40271f18e6bcdc030e3
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Tue May 10 17:16:09 2016 +0200
+
+    Removed unused code.
+
+ QLNet/Pricingengines/vanilla/HestonExpansionEngine.cs | 2 --
+ 1 file changed, 2 deletions(-)
+
+commit 925cca756b5cc853cd0ea596eddf2e8fa84e8423
+Merge: 623a66e ef50947
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Tue May 10 11:39:30 2016 +0200
+
+    Finish feature Heston
+
+commit 623a66e58df945ded28c3ae2da03ff6a09510a7d
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Tue May 10 11:10:01 2016 +0200
+
+    Finish Heston
+
+ QLNet/Instruments/Bonds/MBSFixedRateBond.cs        |    4 +-
+ QLNet/Math/Optimization/Constraint.cs              |  341 +++--
+ QLNet/Math/Optimization/ProjectedConstraint.cs     |   70 +
+ QLNet/Math/Optimization/Projection.cs              |   80 ++
+ QLNet/Math/integrals/GaussLobattoIntegral.cs       |  168 +++
+ QLNet/Math/integrals/GaussianQuadratures.cs        |   10 +-
+ QLNet/Math/integrals/Integral.cs                   |   11 +-
+ QLNet/Math/integrals/Kronrodintegral.cs            |    2 +-
+ .../Math/integrals/gaussianorthogonalpolynomial.cs |    4 +-
+ .../Math/matrixutilities/TqrEigenDecomposition.cs  |   23 +-
+ .../Methods/montecarlo/earlyexercisepathpricer.cs  |    5 +-
+ QLNet/Methods/montecarlo/montecarlomodel.cs        |   12 +-
+ QLNet/Methods/montecarlo/multipathgenerator.cs     |   14 +-
+ QLNet/Methods/montecarlo/path.cs                   |   14 +-
+ QLNet/Methods/montecarlo/pathgenerator.cs          |   16 +-
+ QLNet/Models/Equity/HestonModel.cs                 |  104 ++
+ QLNet/Models/Equity/HestonModelHelper.cs           |  109 ++
+ .../Equity/PiecewiseTimeDependentHestonModel.cs    |   89 ++
+ QLNet/Models/Parameter.cs                          |  364 +++---
+ QLNet/Models/model.cs                              |  223 +++-
+ .../Pricingengines/Bond/TreeCallableBondEngine.cs  |    2 +-
+ .../CapFloor/analyticcapfloorengine.cs             |   10 +-
+ QLNet/Pricingengines/Swap/treeswapengine.cs        |    4 +-
+ .../Pricingengines/asian/mcdiscreteasianengine.cs  |    2 +-
+ QLNet/Pricingengines/genericmodelengine.cs         |   72 +-
+ .../Pricingengines/latticeshortratemodelengine.cs  |    4 +-
+ QLNet/Pricingengines/mclongstaffschwartzengine.cs  |   12 +-
+ QLNet/Pricingengines/mcsimulation.cs               |    2 +-
+ QLNet/Pricingengines/swaption/g2swaptionengine.cs  |    4 +-
+ .../swaption/jamshidianswaptionengine.cs           |    6 +-
+ .../Pricingengines/swaption/treeswaptionengine.cs  |    4 +-
+ .../Pricingengines/vanilla/AnalyticHestonEngine.cs |  605 +++++++++
+ .../vanilla/AnalyticPTDHestonEngine.cs             |  210 +++
+ .../vanilla/FdHestonVanillaEngine.cs               |   92 ++
+ .../vanilla/HestonExpansionEngine.cs               |  786 ++++++++++++
+ .../vanilla/MCEuropeanHestonEngine.cs              |  170 +++
+ QLNet/Pricingengines/vanilla/mcvanillaengine.cs    |   40 +-
+ QLNet/QLNet.csproj                                 |   12 +
+ QLNet/Types.cs                                     |    1 +
+ .../legacy/libormarketmodels/lfmswaptionengine.cs  |    2 +-
+ QLNet/processes/HestonProcess.cs                   |  604 +++++++++
+ Test/T_HestonModel.cs                              | 1351 ++++++++++++++++++++
+ Test/T_LiborMarketModel.cs                         |   11 +-
+ Test/T_LiborMarketModelProcess.cs                  |   12 +-
+ Test/T_PathGenerator.cs                            |   24 +-
+ Test/Test.csproj                                   |    1 +
+ 46 files changed, 5209 insertions(+), 497 deletions(-)
+
+commit ef50947e9c51df608bd72dcae6daf1597abf918d
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Tue May 10 11:08:57 2016 +0200
+
+    Added Heston model & engine with tests.
+
+ QLNet/Math/Optimization/ProjectedConstraint.cs     |   70 +
+ QLNet/Math/Optimization/Projection.cs              |   80 ++
+ QLNet/Math/integrals/GaussLobattoIntegral.cs       |  168 +++
+ QLNet/Math/integrals/Integral.cs                   |   11 +-
+ QLNet/Math/integrals/Kronrodintegral.cs            |    2 +-
+ QLNet/Models/Equity/HestonModel.cs                 |  104 ++
+ QLNet/Models/Equity/HestonModelHelper.cs           |  109 ++
+ QLNet/Models/Parameter.cs                          |    4 +-
+ .../Pricingengines/vanilla/AnalyticHestonEngine.cs |  605 +++++++++
+ .../vanilla/AnalyticPTDHestonEngine.cs             |  210 +++
+ .../vanilla/FdHestonVanillaEngine.cs               |   92 ++
+ .../vanilla/HestonExpansionEngine.cs               |  786 ++++++++++++
+ .../vanilla/MCEuropeanHestonEngine.cs              |  170 +++
+ QLNet/QLNet.csproj                                 |   12 +
+ QLNet/processes/HestonProcess.cs                   |  604 +++++++++
+ Test/T_HestonModel.cs                              | 1351 ++++++++++++++++++++
+ Test/Test.csproj                                   |    1 +
+ 17 files changed, 4371 insertions(+), 8 deletions(-)
+
+commit c2f6b6bf03e276c686e91001fa7c00a7be55dc3c
+Author: Francois Botha <igitur@gmail.com>
+Date:   Mon May 9 18:33:04 2016 +0200
+
+    notifyObservers has to be public here.
+
+ QLNet/Models/model.cs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 9f03318f74b7c0e097829c4450fae68611e5c2dd
+Merge: 3381085 358bc3e
+Author: Francois Botha <igitur@gmail.com>
+Date:   Mon May 9 18:30:52 2016 +0200
+
+    Merge remote-tracking branch 'upstream/develop' into use-weak-event-references
+
+commit aa09ca64f814911226f980eaa0d146c4601bf409
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Mon May 9 17:29:59 2016 +0200
+
+    Bug fix GaussianOrthogonalPolynomial - wrong check
+
+ .../Math/integrals/gaussianorthogonalpolynomial.cs |  4 +-
+ .../Equity/PiecewiseTimeDependentHestonModel.cs    | 89 ++++++++++++++++++++++
+ 2 files changed, 91 insertions(+), 2 deletions(-)
+
+commit 29f41cdb6f31213080f35e20154829948a27d757
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Mon May 9 17:28:28 2016 +0200
+
+    Fix MBSFixedRateBond base cashflow - thx @vina0007
+
+ QLNet/Instruments/Bonds/MBSFixedRateBond.cs | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 811fe347c788a28485c7e4ca9519858fea2e2c6f
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Mon May 9 17:25:44 2016 +0200
+
+    Enabled Handles in GenericModelEngine class.
+
+ .../Pricingengines/Bond/TreeCallableBondEngine.cs  |  2 +-
+ .../CapFloor/analyticcapfloorengine.cs             | 10 +--
+ QLNet/Pricingengines/Swap/treeswapengine.cs        |  4 +-
+ QLNet/Pricingengines/genericmodelengine.cs         | 72 ++++++++++++----------
+ .../Pricingengines/latticeshortratemodelengine.cs  |  4 +-
+ QLNet/Pricingengines/swaption/g2swaptionengine.cs  |  4 +-
+ .../swaption/jamshidianswaptionengine.cs           |  6 +-
+ .../Pricingengines/swaption/treeswaptionengine.cs  |  4 +-
+ .../legacy/libormarketmodels/lfmswaptionengine.cs  |  2 +-
+ 9 files changed, 57 insertions(+), 51 deletions(-)
+
+commit 358bc3ef2e6c6781cecdff4491616ed84a86e685
+Author: Francois Botha <igitur@gmail.com>
+Date:   Mon May 9 16:00:40 2016 +0200
+
+    Update .editorconfig files to set line endings to Windows convention. (#80)
+    
+    Update .editorconfig files to set line endings to Windows convention. …
+    Also add files to example projects.
+
+ Examples/BermudanSwaption/.editorconfig           | 16 ++++++++++++++++
+ Examples/BermudanSwaption/BermudanSwaption.csproj |  3 +++
+ Examples/Bonds/.editorconfig                      | 16 ++++++++++++++++
+ Examples/Bonds/Bonds.csproj                       |  3 +++
+ Examples/CallableBonds/.editorconfig              | 16 ++++++++++++++++
+ Examples/CallableBonds/CallableBonds.csproj       |  3 +++
+ Examples/EquityOption/.editorconfig               | 16 ++++++++++++++++
+ Examples/EquityOption/EquityOption.csproj         |  3 +++
+ Examples/FRA/.editorconfig                        | 16 ++++++++++++++++
+ Examples/FRA/FRA.csproj                           |  3 +++
+ Examples/FittedBondCurve/.editorconfig            | 16 ++++++++++++++++
+ Examples/FittedBondCurve/FittedBondCurve.csproj   |  3 +++
+ Examples/Repo/.editorconfig                       | 16 ++++++++++++++++
+ Examples/Repo/Repo.csproj                         |  3 +++
+ Examples/Swap/.editorconfig                       | 16 ++++++++++++++++
+ Examples/Swap/Swap.csproj                         |  3 +++
+ QLNet/.editorconfig                               |  4 ++--
+ Test/.editorconfig                                |  4 ++--
+ 18 files changed, 156 insertions(+), 4 deletions(-)
+
+commit 33810850d81ce210eb77b28b4d9d30bb0b6e94fe
+Author: Francois Botha <igitur@gmail.com>
+Date:   Mon May 9 15:38:02 2016 +0200
+
+    Implement WeakEvent pattern to fix memory leak.
+    Credit to Thomas Levesque for WeakEventSource code ( http://www.thomaslevesque.com/2015/08/16/weak-events-in-c-take-two )
+
+ QLNet/Cashflows/CouponPricer.cs                    |  20 +-
+ QLNet/Cashflows/InflationCouponPricer.cs           |  14 +-
+ QLNet/Event.cs                                     |  19 +-
+ QLNet/Handle.cs                                    | 303 ++++++++-------
+ QLNet/Index.cs                                     |  16 +-
+ QLNet/Instruments/Bonds/BTP.cs                     |  14 +-
+ QLNet/Instruments/Claim.cs                         | 124 +++---
+ QLNet/Models/model.cs                              |  52 +--
+ QLNet/Patterns/LazyObject.cs                       |  14 +-
+ QLNet/Patterns/WeakEventSource.cs                  | 136 +++++++
+ QLNet/Patterns/observablevalue.cs                  |  17 +-
+ QLNet/PricingEngine.cs                             |  16 +-
+ .../Pricingengines/asian/mcdiscreteasianengine.cs  |  16 +-
+ QLNet/Pricingengines/mclongstaffschwartzengine.cs  |  16 +-
+ QLNet/Pricingengines/vanilla/FDBermudanEngine.cs   |  16 +-
+ QLNet/Pricingengines/vanilla/FDEuropeanEngine.cs   |  16 +-
+ QLNet/Pricingengines/vanilla/FDVanillaEngine.cs    | 414 +++++++++++----------
+ QLNet/Pricingengines/vanilla/mcvanillaengine.cs    |  16 +-
+ QLNet/QLNet.csproj                                 |   1 +
+ QLNet/Quotes/Quote.cs                              |  14 +-
+ QLNet/Settings.cs                                  |  15 +-
+ QLNet/StochasticProcess.cs                         |  19 +-
+ QLNet/Termstructures/Bootstraphelper.cs            |  16 +-
+ 23 files changed, 769 insertions(+), 535 deletions(-)
+
+commit 45be4c84cb61e6159bd544fadeb27f3054097121
+Author: Francois Botha <igitur@gmail.com>
+Date:   Mon May 9 14:18:37 2016 +0200
+
+    Not sure exactly why, but it seems structs are created on the heap, not stack, so as a struct, this creates a memory leak in the testSobol* cases. Making this a class fixes it.
+
+ QLNet/Methods/montecarlo/sample.cs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 4224911b6ee0d79430ff555e58f03fc51b33e904
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Wed May 4 16:49:59 2016 +0200
+
+    Constraint & Model refactoring.
+
+ QLNet/Math/Optimization/Constraint.cs | 341 +++++++++++++++++++++++-----------
+ QLNet/Models/model.cs                 | 223 +++++++++++++++-------
+ 2 files changed, 388 insertions(+), 176 deletions(-)
+
+commit 06bc480c0eaf1c83b8de98c5f9e5c7136d5d5d7a
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Wed May 4 16:49:01 2016 +0200
+
+    Added M_2_PI const.
+
+ QLNet/Types.cs | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 7a9f0054f5778df741f41143bb8328e6e0eda5a5
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Wed May 4 16:47:53 2016 +0200
+
+    Added constraint inspector to Parameter class.
+
+ QLNet/Models/Parameter.cs | 364 +++++++++++++++++++++++-----------------------
+ 1 file changed, 183 insertions(+), 181 deletions(-)
+
+commit 8fd649e94977fe617bb43efa2c01c353ef2f739a
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Wed May 4 16:46:38 2016 +0200
+
+    Fix visibility on gaussianQuadrature
+
+ QLNet/Math/integrals/GaussianQuadratures.cs | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+commit 7be24fb7a924662d6b0d3740cf4fc57717116079
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Wed May 4 16:45:31 2016 +0200
+
+    Abstracted PathGenerator with interface IPathGenerator to handle MultiPathGenerator in MonteCarlo simulations.
+
+ .../Methods/montecarlo/earlyexercisepathpricer.cs  |  5 +--
+ QLNet/Methods/montecarlo/montecarlomodel.cs        | 12 +++----
+ QLNet/Methods/montecarlo/multipathgenerator.cs     | 14 ++++----
+ QLNet/Methods/montecarlo/path.cs                   | 14 +++++++-
+ QLNet/Methods/montecarlo/pathgenerator.cs          | 16 ++++-----
+ .../Pricingengines/asian/mcdiscreteasianengine.cs  |  2 +-
+ QLNet/Pricingengines/mclongstaffschwartzengine.cs  | 12 ++++---
+ QLNet/Pricingengines/mcsimulation.cs               |  2 +-
+ QLNet/Pricingengines/vanilla/mcvanillaengine.cs    | 40 ++++++++++++----------
+ Test/T_LiborMarketModel.cs                         | 11 +++---
+ Test/T_LiborMarketModelProcess.cs                  | 12 ++++---
+ Test/T_PathGenerator.cs                            | 24 ++++++++-----
+ 12 files changed, 97 insertions(+), 67 deletions(-)
+
+commit d1bb55f3fb10c01419825b98f830bada9b15cf90
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Wed May 4 16:23:57 2016 +0200
+
+    Fixed TqrEigenDecomposition bugs.
+
+ .../Math/matrixutilities/TqrEigenDecomposition.cs  | 23 +++++++++++++++-------
+ 1 file changed, 16 insertions(+), 7 deletions(-)
+
+commit dcac95272e0d64b62bdaae5a67cc2b00d74d6539
+Merge: c38fad2 3e9974b
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Wed Apr 27 12:59:36 2016 +0200
+
+    Finish FittedBondCurve feature
+
+commit 3e9974b6b87b2ee0034e4bb2272ffeb2a8b24c97
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Wed Apr 27 12:58:49 2016 +0200
+
+    Added FittedBondCurve example : Implemented B-spline basis functions, BernsteinPolynomial, FittedBondDiscountCurve, non linear fitting methods.
+
+ Examples/FittedBondCurve/FittedBondCurve.cs        | 596 +++++++++++++++++++++
+ Examples/FittedBondCurve/FittedBondCurve.csproj    |  61 +++
+ .../FittedBondCurve/Properties/AssemblyInfo.cs     |  36 ++
+ QLNet/Extensions/ListExtension.cs                  |  31 ++
+ QLNet/Math/BSpline.cs                              |  96 ++++
+ QLNet/Math/BernsteinPolynomial.cs                  |  33 ++
+ QLNet/QLNet.csproj                                 |   5 +
+ .../Yield/FittedBondDiscountCurve.cs               | 468 ++++++++++++++++
+ .../Yield/NonLinearFittingMethods.cs               | 357 ++++++++++++
+ QLNet_with_Examples.sln                            | 264 ++++-----
+ 10 files changed, 1821 insertions(+), 126 deletions(-)
+
+commit 21e6fb93fd97536a3ee3271c0cf7097ee87eec4b
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Wed Apr 27 12:58:22 2016 +0200
+
+    Update BondHelpers & Bootstraperror.
+
+ QLNet/Termstructures/Bootstraperror.cs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 5fe82236583f02aa390e058a93245f3ca43d4770
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Wed Apr 27 12:57:59 2016 +0200
+
+    Update BondHelpers & Bootstraperror.
+
+ QLNet/Termstructures/Yield/Bondhelpers.cs | 236 ++++++++++++++++--------------
+ 1 file changed, 130 insertions(+), 106 deletions(-)
+
+commit 6da2b52300303840ca23c5e65b06ac03e6c86e67
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Wed Apr 27 12:52:21 2016 +0200
+
+    Fix a bug in IterativeBootstrap that make fail recalculation after interpolate.
+
+ QLNet/Termstructures/Iterativebootstrap.cs | 31 +++++++++++++++++++++---------
+ 1 file changed, 22 insertions(+), 9 deletions(-)
+
+commit 67a3eda25c439372718921a1d742a13c468bf532
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Wed Apr 27 12:48:11 2016 +0200
+
+    Update upper bound for convergence loop in Bootstraptraits
+
+ QLNet/Termstructures/Yield/Bootstraptraits.cs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit c38fad27ad719f390c874646417e67a3c2de497c
+Merge: 956e48d fe988a5
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Thu Apr 14 12:37:57 2016 +0200
+
+    Finish RateHelpers Refactoring
+
+commit fe988a5872d33125b152296e82e9e392be7f7a73
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Thu Apr 14 12:36:23 2016 +0200
+
+    Added rate helper to bootstrap on cross-currency swaps.
+    Added the possibility for bootstrap helpers to define their pillar date in different ways.
+
+ QLNet/Instruments/Futures.cs               |   35 +
+ QLNet/Instruments/MakeOIS.cs               |  166 +--
+ QLNet/Instruments/Makevanillaswap.cs       |  153 ++-
+ QLNet/QLNet.csproj                         |    1 +
+ QLNet/Termstructures/Bootstraphelper.cs    |   49 +-
+ QLNet/Termstructures/Iterativebootstrap.cs |   43 +-
+ QLNet/Termstructures/Yield/Ratehelpers.cs  | 1704 +++++++++++++++++++---------
+ 7 files changed, 1465 insertions(+), 686 deletions(-)
+
+commit 983da624ddadc63762344a52ea9f4cdd36427a7e
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Thu Apr 14 12:33:04 2016 +0200
+
+    Added max-date information to interpolated curve.
+
+ QLNet/Termstructures/Credit/InterpolatedHazardRateCurve.cs   | 11 +++++++++--
+ .../Inflation/InterpolatedZeroInflationCurve.cs              | 11 +++++++++--
+ QLNet/Termstructures/Inflation/PiecewiseYoYInflationCurve.cs | 11 +++++++++--
+ .../Termstructures/Inflation/PiecewiseZeroInflationCurve.cs  | 11 +++++++++--
+ QLNet/Termstructures/Volatility/InterpolatedSmileSection.cs  |  9 ++++++++-
+ QLNet/Termstructures/Yield/DiscountCurve.cs                  | 11 ++++++++++-
+ QLNet/Termstructures/Yield/ForwardCurve.cs                   |  9 ++++++++-
+ QLNet/Termstructures/Yield/PiecewiseYieldCurve.cs            | 12 ++++++++++--
+ QLNet/Termstructures/Yield/ZeroCurve.cs                      | 10 +++++++++-
+ QLNet/Termstructures/interpolatedcurve.cs                    | 12 ++++++++++++
+ 10 files changed, 93 insertions(+), 14 deletions(-)
+
+commit 956e48dc9252c8711ecedacd9d4443b854d79216
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Tue Apr 5 15:08:09 2016 +0200
+
+    Added IncrementalStatistics test .
+    I have included the numerical stability test commented because actual implementation fail.
+
+ Test/T_Stats.cs | 59 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 59 insertions(+)
+
+commit f7ea18d27882bfeefa80d29b0d97b483546137d3
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Fri Apr 1 17:04:19 2016 +0200
+
+    More performant mt19937 implementation.
+
+ QLNet/Math/randomnumbers/mt19937uniformrng.cs | 240 ++++++++++++++------------
+ 1 file changed, 128 insertions(+), 112 deletions(-)
+
+commit e4107aa155726b830cb8e1e2b2933eca03bdd677
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Fri Apr 1 15:54:19 2016 +0200
+
+    Added polynomial functions and Pascal triangle coefficients.
+
+ QLNet/Math/PascalTriangle.cs     |  57 ++++++++++++++++
+ QLNet/Math/PolynomialFunction.cs | 137 +++++++++++++++++++++++++++++++++++++++
+ QLNet/QLNet.csproj               |   2 +
+ 3 files changed, 196 insertions(+)
+
+commit 29b6a7647086861804f8d20e900589e2b01059f2
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Fri Apr 1 15:23:31 2016 +0200
+
+    Added abcd functions.
+
+ QLNet/Math/AbcdMathFunction.cs                     | 195 ++++++++++++++
+ QLNet/Math/Optimization/CostFunction.cs            |   6 +
+ QLNet/QLNet.csproj                                 |   3 +
+ QLNet/Termstructures/Volatility/AbcdCalibration.cs | 287 +++++++++++++++++++++
+ QLNet/Termstructures/Volatility/AbcdFunction.cs    | 153 +++++++++++
+ 5 files changed, 644 insertions(+)
+
+commit 98fa0344b8a9f9c609c2ac56bc45385e0daac9ba
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Fri Apr 1 12:26:37 2016 +0200
+
+    Added Intraday component to dates with hours, minutes, seconds and  milliseconds.
+    Updated DayCounters ( and tests ) to include them in results.
+
+ QLNet/Time/Date.cs                       | 23 +++++++++++++----
+ QLNet/Time/DayCounters/Actual360.cs      |  4 +--
+ QLNet/Time/DayCounters/Actual365Fixed.cs |  4 +--
+ QLNet/Time/DayCounters/ActualActual.cs   | 16 ++++++------
+ Test/T_Dates.cs                          | 43 ++++++++++++++++++++++++++------
+ Test/T_DayCounters.cs                    | 28 +++++++++++++++++++++
+ 6 files changed, 94 insertions(+), 24 deletions(-)
+
+commit 06e87cb2db78de877772fe0faa85b6aaca729803
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Thu Mar 31 16:43:27 2016 +0200
+
+    Added new DayCounters tests : Business252,Thirty360_BondBasis and Thirty360_EurobondBasis
+
+ QLNet/Time/DayCounters/Business252.cs |  29 ++---
+ Test/T_DayCounters.cs                 | 211 +++++++++++++++++++++++++++++++++-
+ 2 files changed, 225 insertions(+), 15 deletions(-)
+
+commit 23564bc78d5ac25a893bd06634117b0ddab53c43
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Thu Mar 31 12:05:46 2016 +0200
+
+    Refactoring AnalyticDiscreteGeometricAveragePriceAsianEngine class
+
+ ...icContinuousGeometricAveragePriceAsianEngine.cs |   1 +
+ ...yticDiscreteGeometricAveragePriceAsianEngine.cs | 180 +++++++++++++++++++++
+ .../asian/analytic_discr_geom_av_price.cs          | 180 ---------------------
+ QLNet/QLNet.csproj                                 |   2 +-
+ 4 files changed, 182 insertions(+), 181 deletions(-)
+
+commit 878f1203ec84b1020e110772d7eb7b7cbd7945bf
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Thu Mar 31 12:02:12 2016 +0200
+
+    Refactoring AnalyticContinuousGeometricAveragePriceAsianEngine class
+
+ ...icContinuousGeometricAveragePriceAsianEngine.cs | 107 ++++++++++++++++++
+ .../asian/analytic_cont_geom_av_price.cs           | 123 ---------------------
+ QLNet/QLNet.csproj                                 |   2 +-
+ 3 files changed, 108 insertions(+), 124 deletions(-)
+
+commit 73c40ad81f80391fd23cc74bf85750ae475db66a
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Wed Mar 30 15:00:41 2016 +0200
+
+    Asian Option test : testAnalyticDiscreteGeometricAveragePriceGreeks
+
+ Test/T_AsianOptions.cs | 485 +++++++++++++++++++++++++------------------------
+ 1 file changed, 243 insertions(+), 242 deletions(-)
+
+commit d86962818ae60c7ecba0154590ac3b9ed87828bd
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Wed Mar 30 12:05:13 2016 +0200
+
+    Added AnalyticDiscreteGeometricAverageStrikeAsianEngine with test.
+
+ ...ticDiscreteGeometricAverageStrikeAsianEngine.cs | 144 +++++++++++++++++++++
+ QLNet/QLNet.csproj                                 |   1 +
+ Test/T_AsianOptions.cs                             |  57 ++++++++
+ 3 files changed, 202 insertions(+)
+
+commit 05b7f94d5ad5ac8d13108e5357780e4d56ff8b81
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Wed Mar 30 11:37:16 2016 +0200
+
+    Asian Option test : testAnalyticDiscreteGeometricAveragePrice
+
+ Test/T_AsianOptions.cs | 122 ++++++++++++++++++++++++-------------------------
+ 1 file changed, 59 insertions(+), 63 deletions(-)
+
+commit d6143c9da5b87b9f7b96c44b7c003152d82022b4
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Wed Mar 30 11:32:33 2016 +0200
+
+    Asian Option test : AnalyticContinuousGeometricAveragePriceGreeks
+
+ Test/T_AsianOptions.cs | 331 ++++++++++++++++++++++++-------------------------
+ 1 file changed, 159 insertions(+), 172 deletions(-)
+
+commit 15935ec0302702346031d19d73f37ddb8f01ca0d
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Wed Mar 30 11:21:46 2016 +0200
+
+    Asian Option test : AnalyticContinuousGeometricAveragePrice
+
+ QLNet/Instruments/AsianOption.cs |    5 +-
+ Test/T_AsianOptions.cs           | 2244 ++++++++++++++++++++------------------
+ 2 files changed, 1170 insertions(+), 1079 deletions(-)
+
+commit f063eeab71f67c0ebeaa418f2c33d5054565fd18
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Wed Mar 30 11:20:51 2016 +0200
+
+    Fix AnalyticDiscreteGeometricAveragePriceAsianEngine bug on calculate function.
+
+ .../asian/analytic_discr_geom_av_price.cs          | 315 ++++++++++-----------
+ 1 file changed, 156 insertions(+), 159 deletions(-)
+
+commit 42578a8a38fd597a9363460dc2f2503b17f068d8
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Tue Mar 29 18:08:26 2016 +0200
+
+    Added BFGS ( Broyden-Fletcher-Goldfarb-Shanno ) algorithm.
+
+ QLNet/Math/Optimization/BFGS.cs | 105 ++++++++++++++++++++++++++++++++++++++++
+ QLNet/QLNet.csproj              |   1 +
+ Test/T_Optimizers.cs            |  12 +++--
+ 3 files changed, 113 insertions(+), 5 deletions(-)
+
+commit 88751c78c60eb2f029dcf478fbffbc467b72f066
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Tue Mar 29 17:44:35 2016 +0200
+
+    Added Goldstein line-search method.
+
+ QLNet/Math/Optimization/GoldsteinLineSearch.cs | 103 +++++++++++++++++++++++++
+ QLNet/QLNet.csproj                             |   1 +
+ Test/T_Optimizers.cs                           |  31 +++++++-
+ 3 files changed, 131 insertions(+), 4 deletions(-)
+
+commit c25a14b2ff74154e8ef4a2f2c790833099ac16c2
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Tue Mar 29 17:39:11 2016 +0200
+
+    Updated all Optimization Method classes.
+
+ QLNet/Math/Optimization/ConjugateGradient.cs     | 137 +++++------------------
+ QLNet/Math/Optimization/LineSearchBasedMethod.cs | 124 ++++++++++++++++----
+ QLNet/Math/Optimization/SteepestDescent.cs       | 101 ++++-------------
+ QLNet/Math/Optimization/method.cs                |  19 ++--
+ 4 files changed, 165 insertions(+), 216 deletions(-)
+
+commit 7876550c21708a13f7e6ff1d292705d31c4cb27b
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Tue Mar 29 14:26:49 2016 +0200
+
+    Improve consistency between caplet stripping and pricing.
+
+ QLNet/Termstructures/Volatility/Optionlet/OptionletStripper1.cs | 2 +-
+ Test/T_OptionletStripper.cs                                     | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 7e88c65f39ce1646882a821f773d76726d874cf4
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Thu Mar 24 17:48:48 2016 +0100
+
+    Retrieve inflation fixings from the first day of the month.
+
+ QLNet/Indexes/InflationIndex.cs | 47 ++++++++++++++++++++++-------------------
+ 1 file changed, 25 insertions(+), 22 deletions(-)
+
+commit d6ad5d4f3da52bbed4e90e7caf9f63be4b57a2c7
+Merge: d5907ef 4b54473
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Thu Mar 24 17:19:19 2016 +0100
+
+    Merge branch 'feature/KerkhofSeasonailty' into develop
+
+commit 4b544735a4208c94642eccb849270f38a1278c8c
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Thu Mar 24 16:52:10 2016 +0100
+
+    Added Kerkhof seasonailty model.
+
+ QLNet/Termstructures/Inflation/Seasonality.cs | 64 +++++++++++++++++++++++++++
+ 1 file changed, 64 insertions(+)
+
+commit d5907efa2dffb858773457914ff1de660789b599
+Merge: ded5d2a 6c75291
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Thu Mar 24 16:26:17 2016 +0100
+
+    Finish DateTime feature
+
+commit 6c7529124f72d6d15f663c20a4c5f40f8af7415b
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Thu Mar 24 16:24:41 2016 +0100
+
+    Added Christmas Eve to BOVESPA holidays.
+
+ QLNet/Time/Calendars/brazil.cs | 89 ++++++++++++++++++++++--------------------
+ 1 file changed, 46 insertions(+), 43 deletions(-)
+
+commit debd31bfd895862730c6e0aa8519d907022e9f5c
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Thu Mar 24 16:12:59 2016 +0100
+
+    Removed MLK day from list of US holidays before 1983.
+
+ QLNet/Time/Calendars/UnitedStates.cs | 177 ++++++++++++++++++-----------------
+ 1 file changed, 89 insertions(+), 88 deletions(-)
+
+commit 6bd5d5b83006422dc48980e886a795d40056aa9e
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Thu Mar 24 16:08:07 2016 +0100
+
+    Added new Mountain Day holiday for Japan calendar.
+
+ QLNet/Time/Calendars/japan.cs | 65 ++++++++++++++++++++++---------------------
+ 1 file changed, 34 insertions(+), 31 deletions(-)
+
+commit 38429dc0d8d2902fde1054606c01a2b1bcca039d
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Thu Mar 24 16:02:34 2016 +0100
+
+    Updated South Korean calendar until the end of 2032.
+
+ QLNet/Time/Calendars/southkorea.cs | 102 ++++++++++++++++++++++++++++---------
+ 1 file changed, 77 insertions(+), 25 deletions(-)
+
+commit e7e7b7a3177eebf41e268f37727d1c8d9344cd79
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Thu Mar 24 14:58:42 2016 +0100
+
+    Added ECB reserve maintenance periods for 2016.
+
+ QLNet/Time/ECB.cs | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+commit 4959410835c496f9de498da2798738c50664d4fe
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Thu Mar 24 14:39:00 2016 +0100
+
+    Added Israelian calendar.
+
+ QLNet/QLNet.csproj             |   1 +
+ QLNet/Time/Calendars/Israel.cs | 402 +++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 403 insertions(+)
+
+commit 6dd29eac99ed24bee63ed64f2c55e1cf5e937bbd
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Thu Mar 24 12:46:50 2016 +0100
+
+    Added Romanian calendar.
+
+ QLNet/QLNet.csproj              |  1 +
+ QLNet/Time/Calendars/Romania.cs | 86 +++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 87 insertions(+)
+
+commit ded5d2aad9a15baa163bc4c48e845d696cf25e63
+Merge: 03e7720 8e6346f
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Thu Mar 24 12:03:18 2016 +0100
+
+    Fix Indentation ( CID 78809 )
+
+commit 8e6346f8f4abec76f423863342085b7483b209cb
+Author: Andrea Maggiulli <a.maggiulli@gmail.com>
+Date:   Thu Mar 24 12:02:07 2016 +0100
+
+    Fix Indentation ( CID 78809 )
+
+ QLNet/Termstructures/Volatility/InterpolatedSmileSection.cs | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
